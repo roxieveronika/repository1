@@ -1,0 +1,14 @@
+{% extends 'Api/View/Layout/layout.html.twig' %}
+
+{% block content %}
+
+    <ul class="pagination" method="get">
+        {% for($i=$start; $i <= $finish; $i++) %}
+
+        if($i == $page)
+        <li class="active"><a href="{{ ## }}">{{ res.$i }}</a></li>
+         } else {
+        <li><a href="{{ ## }}">{{ res.$i }}</a></li>
+        {% endfor %}
+    </ul>
+            {% endblock %}

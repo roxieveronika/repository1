@@ -1,0 +1,42 @@
+{% extends 'Api/View/Layout/layout.html.twig' %}
+
+
+{% block content %}
+
+    <table class="table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>tytul</th>
+        <th>data</th>
+        <th>lead</th>
+        <th>tresc</th>
+        <th>kategoria</th>
+        <th>opcje</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for res in result %}
+        <tr>
+            <td>{{ res.id }}</td>
+            <td>{{ res.tytul }}</td>
+            <td>{{ res.data }}</td>
+            <td>{{ res.lead }}</td>
+            <td>{{ res.tresc }}</td>
+            <td>{{ res.idcategory }}</td>
+            <td><a class="btn btn-danger" href="{{ url('articleEdit', {'id':res.id}) }}">edytuj</a>
+                <a class="btn btn-primary" href="{{ url('articleDelete', {'id':res.id}) }}">usuń</a>
+                <a class="btn btn-primary" href="{{ url('articleAdd') }}">dodaj</a> {#brak id! - metodzie add nie jest przypisane zadne id, patrz: routes.php->articleadd#}
+            </td>
+        </tr>
+
+    {% endfor %}
+
+
+    </tbody>
+    </table>
+
+    {{ pagination(page, allPage, 'articles') }}
+
+{% endblock %}

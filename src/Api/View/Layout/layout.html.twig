@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Super Strona</title>
+
+        <meta charset="UTF-8">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+
+
+        <link rel="Stylesheet" type="text/css" href="views/login/style.css" />
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+<div class="container">
+
+    {% block content %}
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Panel administracyjny</a>
+
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Witaj! <!--<?php echo $_SESSION['user']['login']?>--></a>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategorie <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo url('categories', 'addCategories')?>">Dodaj kategorię</a></li>
+                                <li><a href="<?php echo url('categories', 'getCategoriesList')?>">Lista kategorii</a></li></ul>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artykuły <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo url('articles', 'addArticles')?>">Dodaj artykuł</a></li>
+                                <li><a href="<?php echo url('articles', 'getArticlesList')?>">Lista artykułów</a></li></ul>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Użytkownicy <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo url('users', 'addUsers')?>">Dodaj użytkownika</a></li>
+                                <li><a href="<?php echo url('users', 'getUsersList')?>">Lista użytkowników</a></li>
+                                <li><a href="<?php echo url('login', 'index')?>">Zaloguj</a></li>
+                                <li><a href="<?php echo url('login', 'logout')?>">Wyloguj</a></li>
+
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    {% endblock %}
+
+
+</div>
+
+</body>
+
+</html>
